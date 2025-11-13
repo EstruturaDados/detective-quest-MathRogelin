@@ -92,6 +92,34 @@ int main() {
     // - Use recursão ou laços para caminhar pela árvore.
     // - Nenhuma inserção dinâmica é necessária neste nível.
 
+    /* Montagem automática da mansão (árvore binária) */
+    Sala *hall = criarSala("Hall de Entrada");
+    Sala *salaEstar = criarSala("Sala de Estar");
+    Sala *cozinha = criarSala("Cozinha");
+    Sala *biblioteca = criarSala("Biblioteca");
+    Sala *jardim = criarSala("Jardim");
+    Sala *porao = criarSala("Porao");
+    Sala *quarto = criarSala("Quarto Principal");
+
+    // Estrutura da árvore
+    hall->esquerda = salaEstar;
+    hall->direita = cozinha;
+    salaEstar->esquerda = biblioteca;
+    salaEstar->direita = jardim;
+    cozinha->esquerda = porao;
+    cozinha->direita = quarto;
+
+    printf("=== DETECTIVE QUEST ===\n");
+    printf("Bem-vindo à mansão misteriosa!\n");
+    printf("Explore os cômodos e descubra o caminho.\n");
+
+    // Inicia exploração
+    explorarSalas(hall);
+
+    // Libera memória
+    liberarArvore(hall);
+
+    printf("\nObrigado por jogar!\n");
     return 0;
 }
 
